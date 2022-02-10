@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
+    <title>Estetist | Выбирай косметику грамотно</title>
+</head>
+<body>
+    <!--Navbar-->
+    <header id="navbar">
+        <div class="container flex">
+            <a href="#" class="logo"><h1>Estetist</h1></a>
+            <nav>
+                <ul id="navigation">
+                    <li><a href="#" class="navBtn">О нас</a></li>
+                    <li><a href="#" class="navBtn">Контакты</a></li>
+                    <li><a href="#" class="navBtn">Наш блог</a></li>
+                    <li><a href="#" class="navBtn">Услуги</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!--Content-->
+    <main>
+        <section class="form-area">
+            <div class="flex container form-legend">
+                <h2>Для получения обратной связи</h2>
+                <p>Оставьте контактную информацию и мы с Вами свяжемся в ближайшее время</p>
+            </div>
+            <div class="grid">
+                <div class="form-wrapper">
+                    <form action="" class="estetist-form">
+                        <ul>
+                            <li class="row-form">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" required>
+                            </li>
+                            <li class="row-form">
+                                <label for="name">Ваше имя</label>
+                                <input type="text" id="name" required>
+                            </li>
+                            <li class="row-form">
+                                <label for="phine_number">Номер телефона</label>
+                                <input type="text" id="phone_number" required>
+                            </li>
+                            <li class="row-form options">
+                                <label for="services">Выберите пакет услуг:</label>
+                                <select id="service" name="service">
+                                  <option value="base">Пакет Базовый подбор</option>
+                                  <option value="plus">Пакет Подбор Плюс</option>
+                                  <option value="all">Пакет Все включено</option>
+                                </select> 
+                            </li>
+                            <li class="row-form">
+                                <label for="message">Ваше сообщение</label>
+                                <textarea rows="10" id="message" required></textarea>
+                            </li>
+                            <li>
+                                <input type="submit" value="Заказать подбор" class="row-button">
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+                <div class="message">
+                    <p>
+                        Или напишите нам на E-mail: your.estetist@gmail.com
+                    </p>
+                    <a href="mailto:your.estetist@gmail.com" class="mes-env"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </section>  
+    </main>
+    <!--Footer-->
+    <footer class="footer flex">
+        <div class="container">
+            <p class="footer-text">Свяжитесь с нами:</p>
+            <ul>
+                <li>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </li>
+                <li>
+                    <a href=""><i class="fab fa-instagram"></i></a>
+                   
+                </li>
+                <li>
+                    <a href="mailto:your.estetist@gmail.com"><i class="fa fa-envelope"></i></a>
+                </li>
+            </ul>
+            <p class="footer-text copyright">&copy;2022 Estetist</p>
+        </div>
+    </footer>
+    <script src="current_nav.js"></script>
+</body>
+</html>
