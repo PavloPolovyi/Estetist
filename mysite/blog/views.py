@@ -1,3 +1,55 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Post, Comment
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from taggit.models import Tag
+from .forms import CommentForm
+from django.db.models import Count
 
-# Create your views here.
+
+def list_view(request, tag_id=None):
+    list_objects = Post.objects.all().filter(status='опубликовано')
+    tag = None
+    if tag_id:
+        tag = get_object_or_404(Tag, id=tag_id)
+        list_objects = list_objects.filter(tags__in=[tag])
+    paginator = Paginator(list_objects, 6)
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer deliver the first page
+        posts = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range deliver last page of results
+        posts = paginator.page(paginator.num_pages)
+    return render(request, 'blog/blog_list.html', {'posts': posts, 'tag': tag})
+
+
+def post_detail(request, year, month, day, slug):
+    post = get_object_or_404(Post,
+                             slug=slug,
+                             publish__year=year,
+                             publish__month=month,
+                             publish__day=day,
+                             status='опубликовано')
+    comments = post.comments.all().filter(active=True)
+    comment_form = CommentForm()
+    new_comment = None
+    post_tags = post.tags.values_list('id', flat=True)
+    similar = Post.objects.filter(tags__in=post_tags).exclude(id=post.id)
+    similar_posts = similar.annotate(similarity=Count('tags')).order_by(
+        'similarity', '-publish')[:3]
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.post = post
+            new_comment.save()
+            return redirect(post.get_absolute_url())
+    return render(
+        request, 'blog/blog_detail.html', {
+            'post': post,
+            'comments': comments,
+            'comment_form': comment_form,
+            'similar_posts': similar_posts,
+        })

@@ -1,12 +1,12 @@
 <header id="navbar">
     <div class="container flex">
-        <a href="#" class="logo"><h1>Estetist</h1></a>
+        <a href="{% url 'main' %}" class="logo"><h1>Estetist</h1></a>
         <nav>
             <ul id="navigation">
-                <li><a href="#about-us" class="navBtn">О нас</a></li>
+                <li><a href="{% url 'main' %}#about-us" class="navBtn">О нас</a></li>
                 <li><a href="#" class="navBtn">Контакты</a></li>
-                <li><a href="#" class="navBtn">Наш блог</a></li>
-                <li><a href="#services" class="navBtn">Услуги</a></li>
+                <li><a href="{% url 'blog:post_list'%}" class="navBtn">Наш блог</a></li>
+                <li><a href="{% url 'main' %}#services" class="navBtn">Услуги</a></li>
             </ul>
         </nav>
     </div>

@@ -1,0 +1,27 @@
+{% load blog_tags %}
+<div class="side-bar">
+    <h2>Последние публикации:</h2>
+    {% show_latest_posts 3 as latest_posts %}
+    <ul>
+        {% for post in latest_posts %}
+        <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+        <hr>
+        {% endfor %}
+    </ul>
+    <h2>Популярные:</h2>
+    {% get_most_commented_posts as top%}
+    <ul>
+        {% for post in top %}
+        <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+        <hr>
+        {% endfor %}
+    </ul>
+    <h2>Категории:</h2>
+    {% categories as tags %}
+    <ul>
+        {% for tag in tags  %}
+        <li><a href="{% url 'blog:post_list_by_tag' tag.id %}">{{ tag.name|capfirst }}</a></li>
+        <hr>
+        {% endfor %}
+    </ul>
+</div>

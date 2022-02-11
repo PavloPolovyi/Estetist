@@ -621,13 +621,25 @@ option {
     grid-template-areas: 
         "content sidebar"
         "leavecom sidebar"
-        "comments sidebar";
+        "comments sidebar"
+        "similar sidebar";
     text-align: justify;
 }
 
 .post-detail {
     grid-area: content;
 }
+
+.similar {
+    grid-area: similar;
+    flex-direction: column;
+}
+
+
+.similar-link:hover {
+    color:#0d6efd;
+}
+
 .blog-post {
     padding: 30px;
 }
@@ -653,11 +665,15 @@ option {
     border-bottom: 1px solid;
 }
 
-.share i {
-    font-size: 30px;
 
+.blog-post-title ul{
+    display: flex;
+    font-size: 30px;
 }
 
+.blog-post-title li {
+    padding-right: 15px;
+}
 .comments {
     grid-area: comments;
     flex-direction: column;

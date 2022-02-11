@@ -1,141 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
-    <title>Estetist | Выбирай косметику грамотно</title>
-</head>
-<body>
-    <!--Navbar-->
-    <header id="navbar">
-        <div class="container flex">
-            <a href="#" class="logo"><h1>Estetist</h1></a>
-            <nav>
-                <ul id="navigation">
-                    <li><a href="#" class="navBtn">О нас</a></li>
-                    <li><a href="#" class="navBtn">Контакты</a></li>
-                    <li><a href="#" class="navBtn">Наш блог</a></li>
-                    <li><a href="#" class="navBtn">Услуги</a></li>
-                </ul>
-            </nav>
+{% extends 'base.html' %}
+{% block title %}Наш Блог{% endblock title %}
+{% block content %}
+<div class="listview">
+    <div class="blog-title flex">
+        <h1>Estetist`s blog</h1>
+        Делимся опытом, делимся идеями, делимся новостями
+    </div>
+    <div>
+        {% if tag %}
+            <p>Посты отсортированные за категорией: {{ tag.name }}</p>
+        {% endif %}
+    </div>
+    <div class="blog-list grid">
+        {% for post in posts %}
+        <div class="post">
+            <a href="{{ post.get_absolute_url }}">
+                <div class="post-image">
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                </div>
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.body|truncatewords:30|linebreaks }}</p>
+                <span class="date">{{ post.publish|timesince }} ago</span>
+            </a>
         </div>
-    </header>
-    <!--Content-->
-    <main>
-        <div class="listview">
-            <div class="blog-title flex">
-                <h1>Estetist`s blog</h1>
-                Делимся опытом, делимся идеями, делимся новостями
-            </div>
-            <div class="blog-list grid">
-                <div class="post">
-                    <a href="#">
-                        <div class="post-image">
-                            <img src="images/blogphoto.jpg" alt="">
-                        </div>
-                        <h2>Как ухаживать за волосами в холодное время года?</h2>
-                        <p>Важно соблюдать смену сезона в уходе за волосами. Сегодня расскажем как правильно ухаживать за волосами в зимний период, чтобы сохранить их гладкость, густоту и здоровый блеск.</p>
-                        <span class="date">03-02-2022</span>
-                    </a>
-                </div>
-                <div class="post">
-                    <a href="#">
-                        <div class="post-image">
-                            <img src="images/blogphoto.jpg" alt="">
-                        </div>
-                        <h2>Как ухаживать за волосами в холодное время года?</h2>
-                        <p>Важно соблюдать смену сезона в уходе за волосами. Сегодня расскажем как правильно ухаживать за волосами в зимний период, чтобы сохранить их гладкость, густоту и здоровый блеск.</p>
-                        <span class="date">03-02-2022</span>
-                    </a>
-                </div>
-                <div class="post">
-                    <a href="#">
-                        <div class="post-image">
-                            <img src="images/blogphoto2.jpg" alt="">
-                        </div>
-                        <h2>Как избавиться от растяжек?</h2>
-                        <p>Растяжки стали причиной комплексов для многих женщин. У кого-то они появляются уже в подростковом возрасте, а у кого-то после рождения ребенка, и все происходит из-за внезапного растяжения кожи. Неподготовленные клетки разрушаются и остаются белым шрамом на всю жизнь. Но так ли это страшно? </p>
-                        <span class="date">03-02-2022</span>
-                    </a>
-                </div>
-                <div class="post">
-                    <a href="#">
-                        <div class="post-image">
-                            <img src="images/blogphoto.jpg" alt="">
-                        </div>
-                        <h2>Как ухаживать за волосами в холодное время года?</h2>
-                        <p>Важно соблюдать смену сезона в уходе за волосами. Сегодня расскажем как правильно ухаживать за волосами в зимний период, чтобы сохранить их гладкость, густоту и здоровый блеск.</p>
-                        <span class="date">03-02-2022</span>
-                    </a>
-                </div>
-                <div class="post">
-                    <a href="#">
-                        <div class="post-image">
-                            <img src="images/blogphoto.jpg" alt="">
-                        </div>
-                        <h2>Как ухаживать за волосами в холодное время года?</h2>
-                        <p>Важно соблюдать смену сезона в уходе за волосами. Сегодня расскажем как правильно ухаживать за волосами в зимний период, чтобы сохранить их гладкость, густоту и здоровый блеск.</p>
-                        <span class="date">03-02-2022</span>
-                    </a>
-                </div>
-                <div class="post">
-                    <a href="#">
-                        <div class="post-image">
-                            <img src="images/blogphoto.jpg" alt="">
-                        </div>
-                        <h2>Как ухаживать за волосами в холодное время года?</h2>
-                        <p>Важно соблюдать смену сезона в уходе за волосами. Сегодня расскажем как правильно ухаживать за волосами в зимний период, чтобы сохранить их гладкость, густоту и здоровый блеск.</p>
-                        <span class="date">03-02-2022</span>
-                    </a>
-                </div>
-                <div class="side-bar">
-                    <h2>Последние публикации:</h2>
-                    <ul>
-                        <li><a href="">Как ухаживать за волосами в холодное время года?</a></li>
-                        <hr>
-                        <li><a href="">Как избавиться от растяжек?</a></li>
-                        <hr>
-                    </ul>
-                    <h2>Популярные:</h2>
-                    <ul>
-                        <li><a href="">Как ухаживать за волосами в холодное время года?</a></li>
-                        <hr>
-                        <li><a href="">Как избавиться от растяжек?</a></li>
-                        <hr>
-                    </ul>
-                    <h2>Тематики:</h2>
-                    <ul>
-                        <li><a href="">Косметика</a></li>
-                        <hr>
-                        <li><a href="">Здоровье</a></li>
-                        <hr>
-                    </ul>
-                </div>
-            </div>
+        {% endfor %}
+        {% include 'sidebar.html' %}
+    </div>
+    <div class="flex">
+        <div class="pagination">
+            <span class="step-links">
+                {% if posts.has_previous %}
+                    <a href="?page=1">&laquo; Первая</a>
+                    <a href="?page={{ posts.previous_page_number }}">Предыдущая</a>
+                {% endif %}
+        
+                <span class="current">
+                    Страница {{ posts.number }} из {{ posts.paginator.num_pages }}.
+                </span>
+        
+                {% if posts.has_next %}
+                    <a href="?page={{ posts.next_page_number }}">Следующая</a>
+                    <a href="?page={{ posts.paginator.num_pages }}">Последняя &raquo;</a>
+                {% endif %}
+            </span>
         </div>
+    </div>
+</div>
+{% endblock content %}
+        
     </main>
-    <!--Footer-->
-    <footer class="footer flex">
-        <div class="container">
-            <p class="footer-text">Свяжитесь с нами:</p>
-            <ul>
-                <li>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                </li>
-                <li>
-                    <a href=""><i class="fab fa-instagram"></i></a>
-                   
-                </li>
-                <li>
-                    <a href="mailto:your.estetist@gmail.com"><i class="fa fa-envelope"></i></a>
-                </li>
-            </ul>
-            <p class="footer-text copyright">&copy;2022 Estetist</p>
-        </div>
-    </footer>
-    <script src="current_nav.js"></script>
-</body>
-</html>
+    
