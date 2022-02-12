@@ -6,7 +6,7 @@
         <div class="estetist grid">
             <h1>Индивидуальный подбор ухода за кожей лица</h1>
             <p>Выбирай косметику грамотно вместе с нашим специалистом</p>
-            <a href="#"><button>Заказать подбор</button></a>
+            <a href="{% url 'clients:client_form' %}"><button>Заказать подбор</button></a>
             <img src="{% static 'images/img4.jpg' %}" alt="">
         </div>
     </section>
@@ -23,7 +23,7 @@
         </div>
     </section>
     <section id="services" class="container section-3 grid">
-        <a href="#" class="link-prop-base">
+        <a href="{% url 'clients:client_form_params' 'base' %}" class="link-prop-base">
             <div>
                 <p>Пакет Базовый подбор</p>
             </div>
@@ -34,7 +34,7 @@
                 <p>Включает в себя:<br>Шаг 1 + Шаг 3</p>
             </div>
         </a>
-        <a href="#" class="link-prop-plus">
+        <a href="{% url 'clients:client_form_params' 'plus' %}" class="link-prop-plus">
             <div>
                 <p>Пакет Подбор Плюс</p>
             </div>
@@ -45,7 +45,7 @@
                 <p>Включает в себя:<br>Шаг 1 + Шаг 2 + Шаг 3</p>
             </div>
         </a>
-        <a href="#" class="link-prop-full">
+        <a href="{% url 'clients:client_form_params' 'full' %}" class="link-prop-full">
             <div>
                 <p>Пакет Все включено</p>
             </div>
@@ -99,7 +99,7 @@
             <span></span>
             <span></span>
         </div>  
-        <a href="#">
+        <a href="{% url 'clients:client_form' %}">
             <button class="my-button">Заказать подбор</button>
         </a>  
     </section>
@@ -134,7 +134,6 @@
                 <img src="{% static 'images/cosmetics_2.png' %}" alt="">
                 <p>Пиллинги, скрабы и маски: что, когда и как правильно применять</p>
             </div>
-
         </div>
     </section>
 {% endblock content %}

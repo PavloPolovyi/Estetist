@@ -13,6 +13,6 @@ class CommentForm(forms.ModelForm):
         )
         widgets = {
             'name': forms.TextInput,
-            'email': forms.TextInput,
+            'email': forms.EmailInput,
             'body': forms.Textarea,
         }

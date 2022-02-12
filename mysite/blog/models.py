@@ -7,12 +7,12 @@ from taggit.managers import TaggableManager
 class Post(models.Model):
 
     STATUS_CHOICES = (
-        ('черновик', 'ЧЕРНОВИК'),
-        ('опубликовано', 'ОПУБЛИКОВАНО'),
+        ('черновик', 'Чeрновик'),
+        ('опубликовано', 'Опубликовано'),
     )
 
     title = models.CharField('Заголовок', max_length=250)
-    image = models.ImageField('Изображение', upload_to='media/post_images/')
+    image = models.ImageField('Изображение', upload_to='post_images/')
     slug = models.SlugField('URL', max_length=250, unique_for_date='publish')
     body = models.TextField("Тело поста")
     publish = models.DateTimeField('Дата публикации', default=timezone.now)
