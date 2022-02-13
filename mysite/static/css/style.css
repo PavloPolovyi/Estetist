@@ -445,6 +445,7 @@ select {
                 rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
                 rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
                 rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+    border-radius: 4px;
 }
 
 option {
@@ -688,7 +689,28 @@ option {
     grid-area: leavecom;
 }
 
+/* alert messages */
 
+.alert {
+    padding: 20px;
+    background-color: #04AA6D;
+    color: white;
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
 
 
 

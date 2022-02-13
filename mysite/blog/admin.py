@@ -29,4 +29,4 @@ class CommentAdmin(admin.ModelAdmin):
 
 
 admin.site.site_title = 'Estetist'
-admin.site.site_header = 'Estetist.Blog'
+admin.site.site_header = 'Estetist'

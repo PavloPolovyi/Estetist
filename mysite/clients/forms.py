@@ -1,5 +1,6 @@
 from django import forms
 from .models import Client
+from phonenumber_field.widgets import PhoneNumberPrefixWidget
 
 
 class ClientForm(forms.ModelForm):
@@ -10,7 +11,7 @@ class ClientForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput,
             'email': forms.EmailInput,
-            'phone': forms.TextInput,
+            'phone': PhoneNumberPrefixWidget(initial='UA'),
             'service': forms.Select,
             'message': forms.Textarea,
         }

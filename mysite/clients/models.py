@@ -28,3 +28,6 @@ class Client(models.Model):
         ordering = ('-application_date', 'name')
         verbose_name = 'Клиент'
         verbose_name_plural = 'Клиенты'
+
+    def __str__(self):
+        return f'{self.name}, {self.phone}, {self.application_date}'
