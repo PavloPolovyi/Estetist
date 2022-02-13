@@ -16,3 +16,10 @@ class CommentForm(forms.ModelForm):
             'email': forms.EmailInput,
             'body': forms.Textarea,
         }
+
+
+class SearchForm(forms.Form):
+    query = forms.CharField()
+    widgets = {
+        'query': forms.TextInput,
+    }

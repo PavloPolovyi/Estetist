@@ -8,5 +8,6 @@ urlpatterns = [
     path('tag/<int:tag_id>', views.list_view, name='post_list_by_tag'),
     path('<int:year>/<int:month>/<int:day>/<str:slug>',
          views.post_detail,
-         name='post_detail')
+         name='post_detail'),
+    path('search/', views.search, name='search'),
 ]
