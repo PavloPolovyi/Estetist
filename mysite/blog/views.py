@@ -7,6 +7,7 @@ from django.db.models import Count
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 
 
+
 def list_view(request, tag_id=None):
     list_objects = Post.objects.all().filter(status='опубликовано')
     tag = None
@@ -18,10 +19,8 @@ def list_view(request, tag_id=None):
     try:
         posts = paginator.page(page)
     except PageNotAnInteger:
-        # If page is not an integer deliver the first page
         posts = paginator.page(1)
     except EmptyPage:
-        # If page is out of range deliver last page of results
         posts = paginator.page(paginator.num_pages)
     return render(request, 'blog/blog_list.html', {'posts': posts, 'tag': tag})
 
@@ -75,10 +74,8 @@ def search(request):
     try:
         results = paginator.page(page)
     except PageNotAnInteger:
-        # If page is not an integer deliver the first page
         results = paginator.page(1)
     except EmptyPage:
-        # If page is out of range deliver last page of results
         results = paginator.page(paginator.num_pages)
     return render(request, 'blog/search_results.html', {
         'query': query,

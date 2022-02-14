@@ -41,7 +41,7 @@
                             {{ comment_form.body.errors }}
                             <label for="{{ comment_form.body.id_for_label }}">Ваше сообщение</label>
                             {{ comment_form.body }}
-                        </li>
+                        </li> 
                         <li>
                             <input type="submit" value="Оставить комментарий" class="row-button">
                         </li>
@@ -70,4 +70,12 @@
             {% include 'sidebar.html' %}
         </div>
     </div>
+    <script>
+        //global grecaptcha
+        grecaptcha.ready(function() {
+          grecaptcha.execute('{{recaptcha_site_key}}', {action: "/contact/"}).then(function(token) {
+            document.getElementById('g-recaptcha-response').value = token;
+          });
+        });
+    </script>
 {% endblock content %}

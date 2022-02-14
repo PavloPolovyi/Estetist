@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% block title %}Заполните форму{% endblock title %}
 {% block content %}
+    <script>
+        //global grecaptcha
+        grecaptcha.ready(function() {
+        grecaptcha.execute('{{recaptcha_site_key}}', {action: "/contact/"}).then(function(token) {
+            document.getElementById('g-recaptcha-response').value = token;
+        });
+        });
+    </script>  
     <section class="form-area">
         <div class="flex container form-legend">
             <h2>Для получения обратной связи</h2>
@@ -37,6 +45,7 @@
                             <label for="{{ form.messsage.id_for_label }}">Ваше сообщение</label>
                             {{ form.message }}
                         </li>
+                        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
                         <li>
                             <input type="submit" value="Заказать подбор" class="row-button">
                         </li>
@@ -50,7 +59,7 @@
                 <a href="mailto:your.estetist@gmail.com" class="mes-env"><i class="fa fa-envelope"></i></a>
             </div>
         </div>
-    </section>  
+    </section>
 {% endblock content %}  
     
    
