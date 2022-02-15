@@ -1,5 +1,16 @@
 from django.contrib import admin
 from .models import Post, Comment
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
+from django import forms
+
+
+class PostAdminForm(forms.ModelForm):
+    body = forms.CharField(label='Текст поста',
+                           widget=CKEditorUploadingWidget())
+
+    class Meta:
+        model = Post
+        fields = '__all__'
 
 
 class PostInline(admin.TabularInline):
@@ -17,6 +28,7 @@ class PostAdmin(admin.ModelAdmin):
     ordering = ('status', 'publish')
     inlines = [PostInline]
     save_on_top = True
+    form = PostAdminForm
 
 
 @admin.register(Comment)

@@ -14,7 +14,7 @@ class Post(models.Model):
     title = models.CharField('Заголовок', max_length=250)
     image = models.ImageField('Изображение', upload_to='post_images/')
     slug = models.SlugField('URL', max_length=250, unique_for_date='publish')
-    body = models.TextField("Тело поста")
+    body = models.TextField("Текст поста")
     publish = models.DateTimeField('Дата публикации', default=timezone.now)
     created = models.DateTimeField('Дата создания', auto_now_add=True)
     updated = models.DateTimeField('Дата последнего редактирования',

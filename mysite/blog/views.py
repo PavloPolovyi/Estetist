@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from .models import Post, Comment
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from taggit.models import Tag
 from .forms import CommentForm, SearchForm
 from django.db.models import Count
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
-
 
 
 def list_view(request, tag_id=None):
@@ -34,7 +34,6 @@ def post_detail(request, year, month, day, slug):
                              status='опубликовано')
     comments = post.comments.all().filter(active=True)
     comment_form = CommentForm()
-    new_comment = None
     post_tags = post.tags.values_list('id', flat=True)
     similar = Post.objects.filter(tags__in=post_tags).exclude(id=post.id)
     similar_posts = similar.annotate(similarity=Count('tags')).order_by(
@@ -68,6 +67,8 @@ def search(request):
             results = Post.objects.filter(status='опубликовано').annotate(
                 rank=SearchRank(search_vector, search_query)).filter(
                     rank__gte=0.1).order_by('-rank')
+    else:
+        return redirect(reverse('blog:post_list'))
 
     paginator = Paginator(results, 6)
     page = request.GET.get('page')
