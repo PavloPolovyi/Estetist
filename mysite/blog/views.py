@@ -6,10 +6,11 @@ from taggit.models import Tag
 from .forms import CommentForm, SearchForm
 from django.db.models import Count
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
+from django.views.generic.list import ListView
 
 
 def list_view(request, tag_id=None):
-    list_objects = Post.objects.all().filter(status='опубликовано')
+    list_objects = Post.objects.filter(status='опубликовано')
     tag = None
     if tag_id:
         tag = get_object_or_404(Tag, id=tag_id)

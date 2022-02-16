@@ -31,7 +31,6 @@ class ClientFormView(FormView):
         r = requests.post('https://www.google.com/recaptcha/api/siteverify',
                           data=data)
         result = r.json()
-        print(result)
         if result['success']:
             form.save()
             response = super().form_valid(form)
