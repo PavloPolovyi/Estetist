@@ -15,6 +15,7 @@ class ClientForm(forms.ModelForm):
             'service': forms.Select,
             'message': forms.Textarea,
         }
+        labels = {'name': 'Ваше имя', 'message': 'Ваше сообщение'}
 
     def set_initial(self, value):
         if value == 'base':

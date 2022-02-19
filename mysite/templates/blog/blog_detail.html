@@ -21,31 +21,13 @@
                     {{ post.body }}
                 </p>
             </div>
-            <div class="leave-comment">
+            <div class="form-wrapper">
                 <h3>Оставьте комментарий:</h3>
                 <form method='post' class="estetist-form">
                     {% csrf_token %}
-                    {{ comment_form.non_field_errors }}
-                    <ul>
-                        <li class="row-form">
-                            {{ comment_form.email.errors }}
-                            <label for="{{ comment_form.email.id_for_label }}">Email</label>
-                            {{ comment_form.email }}
-                        </li>
-                        <li class="row-form">
-                            {{ comment_form.name.errors }}
-                            <label for="{{ comment_form.name.id_for_label }}">Ваше имя</label>
-                            {{ comment_form.name }}
-                        </li>
-                        <li class="row-form">
-                            {{ comment_form.body.errors }}
-                            <label for="{{ comment_form.body.id_for_label }}">Ваше сообщение</label>
-                            {{ comment_form.body }}
-                        </li> 
-                        <li>
-                            <input type="submit" value="Оставить комментарий" class="row-button">
-                        </li>
-                    </ul> 
+                    {% csrf_token %}
+                    {{ comment_form.as_ul }}
+                    <input type="submit" value="Заказать подбор" class="row-button">
                 </form>
             </div>
             <div class="comments flex">

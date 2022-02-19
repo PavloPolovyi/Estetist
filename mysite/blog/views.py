@@ -6,7 +6,6 @@ from taggit.models import Tag
 from .forms import CommentForm, SearchForm
 from django.db.models import Count
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
-from django.views.generic.list import ListView
 
 
 def list_view(request, tag_id=None):

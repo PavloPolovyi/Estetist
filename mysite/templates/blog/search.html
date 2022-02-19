@@ -1,12 +1,7 @@
+
+<h2>Поиск по блогу</h2>
 <form action="{% url 'blog:search' %}" method="get">
-    <ul>
-        <li class="row-form">
-            {{ search_form.query.errors }}
-            <label for="{{ search_form.query.id_for_label }}"></label>
-            {{ search_form.query }}
-        </li>
-        <li>
-            <input type="submit" value="Поиск" class="row-button">
-        </li>
-    </ul>
+    {{ search_form.as_ul }}
+    <input type="submit" value="Поиск" class="row-button">
 </form>
+

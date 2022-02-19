@@ -4,7 +4,7 @@
     <script>
         //global grecaptcha
         grecaptcha.ready(function() {
-        grecaptcha.execute('{{recaptcha_site_key}}', {action: "/contact/"}).then(function(token) {
+        grecaptcha.execute('{{recaptcha_site_key}}', {action: "submit"}).then(function(token) {
             document.getElementById('g-recaptcha-response').value = token;
         });
         });
@@ -18,38 +18,9 @@
             <div class="form-wrapper">
                 <form method='post' class="estetist-form">
                     {% csrf_token %}
-                    {{ form.non_field_errors }}
-                    <ul>
-                        <li class="row-form">
-                            {{ form.name.errors }}
-                            <label for="{{ form.name.id_for_label }}">Ваше имя</label>
-                            {{ form.name }}
-                        </li>
-                        <li class="row-form">
-                            {{ form.email.errors }}
-                            <label for="{{ form.email.id_for_label }}">Ваш Email</label>
-                            {{ form.email }}
-                        </li>
-                        <li class="row-form">
-                            {{ form.phone.errors }}
-                            <label for="{{ form.phone.id_for_label }}">Ваш номер телефона</label>
-                            {{ form.phone }}
-                        </li>
-                        <li class="row-form">
-                            {{ form.service.errors }}
-                            <label for="{{ form.service.id_for_label }}">Услуга</label>
-                            {{ form.service }}
-                        </li>
-                        <li class="row-form">
-                            {{ form.message.errors }}
-                            <label for="{{ form.messsage.id_for_label }}">Ваше сообщение</label>
-                            {{ form.message }}
-                        </li>
-                        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
-                        <li>
-                            <input type="submit" value="Заказать подбор" class="row-button">
-                        </li>
-                    </ul> 
+                    {{ form.as_ul }}
+                    <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+                    <input type="submit" value="Заказать подбор" class="row-button">
                 </form>
             </div>
             <div class="message">

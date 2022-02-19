@@ -17,9 +17,13 @@ class CommentForm(forms.ModelForm):
             'body': forms.Textarea,
         }
 
+        labels = {'body': 'Ваш комментарий'}
+
 
 class SearchForm(forms.Form):
-    query = forms.CharField()
-    widgets = {
-        'query': forms.TextInput,
-    }
+    query = forms.CharField(label='')
+
+    class Meta:
+        widgets = {
+            'query': forms.TextInput,
+        }

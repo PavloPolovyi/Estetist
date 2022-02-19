@@ -1,9 +1,9 @@
 from django.urls import path
-from .views import ClientFormView
+from .views import client_form_view
 
 app_name = 'clients'
 
 urlpatterns = [
-    path('', ClientFormView.as_view(), name="client_form"),
-    path('<str:service>', ClientFormView.as_view(), name="client_form_params")
+    path('', client_form_view, name="client_form"),
+    path('<str:service>', client_form_view, name="client_form_params")
 ]
