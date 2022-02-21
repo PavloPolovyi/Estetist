@@ -2,10 +2,11 @@ from django.contrib import admin
 from .models import Post, Comment
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django import forms
+from django.utils.translation import gettext_lazy as _
 
 
 class PostAdminForm(forms.ModelForm):
-    body = forms.CharField(label='Текст поста',
+    body = forms.CharField(label=_('Текст поста'),
                            widget=CKEditorUploadingWidget())
 
     class Meta:

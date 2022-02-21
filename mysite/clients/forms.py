@@ -1,6 +1,7 @@
 from django import forms
 from .models import Client
 from phonenumber_field.widgets import PhoneNumberPrefixWidget
+from django.utils.translation import gettext_lazy as _
 
 
 class ClientForm(forms.ModelForm):
@@ -15,14 +16,14 @@ class ClientForm(forms.ModelForm):
             'service': forms.Select,
             'message': forms.Textarea,
         }
-        labels = {'name': 'Ваше имя', 'message': 'Ваше сообщение'}
+        labels = {'name': _('Ваше имя'), 'message': _('Ваше сообщение')}
 
     def set_initial(self, value):
         if value == 'base':
-            self.initial['service'] = 'Пакет Базовый подбор'
+            self.initial['service'] = _('Пакет Базовый подбор')
         elif value == 'plus':
-            self.initial['service'] = 'Пакет Подбор Плюс'
+            self.initial['service'] = _('Пакет Подбор Плюс')
         elif value == 'full':
-            self.initial['service'] = 'Пакет Все включено'
+            self.initial['service'] = _('Пакет Все включено')
         else:
             self.initial['service'] = None

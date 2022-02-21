@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-{% block title %}Заполните форму{% endblock title %}
+{% load i18n %}
+{% block title %}{% trans "Заполните форму" %}{% endblock title %}
 {% block content %}
     <script>
         //global grecaptcha
@@ -11,8 +12,8 @@
     </script>  
     <section class="form-area">
         <div class="flex container form-legend">
-            <h2>Для получения обратной связи</h2>
-            <p>Оставьте контактную информацию и мы с Вами свяжемся в ближайшее время</p>
+            <h2>{% trans "Для получения обратной связи" %}</h2>
+            <p>{% trans "Оставьте контактную информацию и мы с Вами свяжемся в ближайшее время" %}</p>
         </div>
         <div class="grid">
             <div class="form-wrapper">
@@ -20,12 +21,12 @@
                     {% csrf_token %}
                     {{ form.as_ul }}
                     <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
-                    <input type="submit" value="Заказать подбор" class="row-button">
+                    <input type="submit" value="{% trans "Заказать подбор" %}" class="row-button">
                 </form>
             </div>
             <div class="message">
                 <p>
-                    Или напишите нам на E-mail: your.estetist@gmail.com
+                    {% trans "Или напишите нам на E-mail" %}: your.estetist@gmail.com
                 </p>
                 <a href="mailto:your.estetist@gmail.com" class="mes-env"><i class="fa fa-envelope"></i></a>
             </div>

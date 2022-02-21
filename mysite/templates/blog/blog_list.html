@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block title %}Наш Блог{% endblock title %}
 {% block content %}
 <div class="listview">
     <div class="blog-title flex">
         <h1>Estetist`s blog</h1>
-        Делимся опытом, делимся идеями, делимся новостями
+        {% trans "Делимся опытом, делимся идеями, делимся новостями" %}
         {% if tag %}
-        <p>Публикации отсортированные за категорией: {{ tag.name }}</p>
+        <p>{% trans "Публикации отсортированные за категорией" %}: {{ tag.name }}</p>
         {% endif %}
     </div>
     <div class="blog-list grid">
@@ -18,7 +19,7 @@
                 </div>
                 <h2>{{ post.title }}</h2>
                 <p>{{ post.body|truncatewords:30|linebreaks }}</p>
-                <span class="date">{{ post.publish|timesince }} ago</span>
+                <span class="date">{{ post.publish|timesince}} ago</span>
             </a>
         </div>
         {% endfor %}
@@ -32,9 +33,8 @@
                     </a>
                     <a href="?page={{ posts.previous_page_number }}"><i class="fas fa-angle-left"></i></a>
                 {% endif %}
-        
                 <span class="current">
-                    Страница {{ posts.number }} из {{ posts.paginator.num_pages }}.
+                    {% trans "Страница" %} {{ posts.number }} {% trans "из" %} {{ posts.paginator.num_pages }}.
                 </span>
                 {% if posts.has_next %}
                     <a href="?page={{ posts.next_page_number }}"><i class="fas fa-angle-right"></i></a>

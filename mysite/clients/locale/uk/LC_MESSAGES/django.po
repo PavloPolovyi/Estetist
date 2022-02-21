@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-21 14:47+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\clients\forms.py:19
+msgid "Ваше имя"
+msgstr "Ваше ім'я"
+
+#: .\clients\forms.py:19
+msgid "Ваше сообщение"
+msgstr "Ваше повідомлення"
+
+#: .\clients\forms.py:23 .\clients\models.py:9
+msgid "Пакет Базовый подбор"
+msgstr "Пакет Базовий підбір"
+
+#: .\clients\forms.py:25 .\clients\models.py:10
+msgid "Пакет Подбор Плюс"
+msgstr "Пакет Підбір Плюс"
+
+#: .\clients\forms.py:27 .\clients\models.py:11
+msgid "Пакет Все включено"
+msgstr "Пакет Все включено"
+
+#: .\clients\models.py:15
+msgid "Имя"
+msgstr "Ім'я"
+
+#: .\clients\models.py:16
+msgid "Номер телефона"
+msgstr "Номер телефону"
+
+#: .\clients\models.py:20
+msgid "Услуга"
+msgstr "Послуга"
+
+#: .\clients\models.py:23
+msgid "Сообщение"
+msgstr "Повідомлення"
+
+#: .\clients\models.py:24
+msgid "Дата заполнения формы"
+msgstr "Дата заповення форми"
+
+#: .\clients\models.py:26
+msgid "Активный"
+msgstr "Активний"
+
+#: .\clients\models.py:30
+msgid "Клиент"
+msgstr "Клієнт"
+
+#: .\clients\models.py:31
+msgid "Клиенты"
+msgstr "Клієнти"
+
+#: .\clients\views.py:9
+msgid "Спасибо, с вами скоро свяжется наш консультант."
+msgstr "Дякую, з вами скоро зв'яжеться наш консультант."
+
+#: .\clients\views.py:10
+msgid "Заполните форму корректными данными."
+msgstr "Заповніть форму коректними даними."

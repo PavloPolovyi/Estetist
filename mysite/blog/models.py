@@ -2,33 +2,34 @@ from django.db import models
 from django.utils import timezone
 from django.urls import reverse
 from taggit.managers import TaggableManager
+from django.utils.translation import gettext_lazy as _
 
 
 class Post(models.Model):
 
     STATUS_CHOICES = (
-        ('черновик', 'Чeрновик'),
-        ('опубликовано', 'Опубликовано'),
+        (_('черновик'), _('Чeрновик')),
+        (_('опубликовано'), _('Опубликовано')),
     )
 
-    title = models.CharField('Заголовок', max_length=250)
-    image = models.ImageField('Изображение', upload_to='post_images/')
+    title = models.CharField(_('Заголовок'), max_length=250)
+    image = models.ImageField(_('Изображение'), upload_to='post_images/')
     slug = models.SlugField('URL', max_length=250, unique_for_date='publish')
-    body = models.TextField("Текст поста")
-    publish = models.DateTimeField('Дата публикации', default=timezone.now)
-    created = models.DateTimeField('Дата создания', auto_now_add=True)
-    updated = models.DateTimeField('Дата последнего редактирования',
+    body = models.TextField(_("Текст поста"))
+    publish = models.DateTimeField(_('Дата публикации'), default=timezone.now)
+    created = models.DateTimeField(_('Дата создания'), auto_now_add=True)
+    updated = models.DateTimeField(_('Дата последнего редактирования'),
                                    auto_now=True)
-    status = models.CharField('Статус поста',
+    status = models.CharField(_('Статус поста'),
                               max_length=12,
                               choices=STATUS_CHOICES,
-                              default='черновик')
+                              default=_('черновик'))
     tags = TaggableManager()
 
     class Meta:
         ordering = ('-publish', )
-        verbose_name = 'Пост'
-        verbose_name_plural = 'Посты'
+        verbose_name = _('Пост')
+        verbose_name_plural = _('Посты')
 
     def __str__(self):
         return self.title
@@ -44,21 +45,21 @@ class Post(models.Model):
 class Comment(models.Model):
 
     post = models.ForeignKey(Post,
-                             verbose_name='Пост',
+                             verbose_name=_('Пост'),
                              on_delete=models.CASCADE,
                              related_name='comments')
-    name = models.CharField('Имя', max_length=80)
+    name = models.CharField(_('Имя'), max_length=80)
     email = models.EmailField()
-    body = models.TextField('Текст комментария')
-    created = models.DateTimeField('Дата создания', auto_now_add=True)
-    updated = models.DateTimeField('Дата последнего редактирования',
+    body = models.TextField(_('Текст комментария'))
+    created = models.DateTimeField(_('Дата создания'), auto_now_add=True)
+    updated = models.DateTimeField(_('Дата последнего редактирования'),
                                    auto_now=True)
-    active = models.BooleanField('Активный', default=True)
+    active = models.BooleanField(_('Активный'), default=True)
 
     class Meta:
         ordering = ('created', )
-        verbose_name = 'Комментарий'
-        verbose_name_plural = 'Комментарии'
+        verbose_name = _('Комментарий')
+        verbose_name_plural = _('Комментарии')
 
     def __str__(self):
         return f'Comment by {self.name} on {self.post}'

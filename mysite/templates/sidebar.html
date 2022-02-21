@@ -1,9 +1,10 @@
 {% load blog_tags %}
+{% load i18n %}
 <div class="side-bar">
     <div class="form-wrapper search">
         {% search %}
     </div>
-    <h2>Последние публикации:</h2>
+    <h2>{% trans "Последние публикации" %}:</h2>
     {% show_latest_posts 3 as latest_posts %}
     <ul>
         {% for post in latest_posts %}
@@ -11,7 +12,7 @@
         <hr>
         {% endfor %}
     </ul>
-    <h2>Популярные:</h2>
+    <h2>{% trans "Популярные" %}:</h2>
     {% get_most_commented_posts as top%}
     <ul>
         {% for post in top %}
@@ -19,7 +20,7 @@
         <hr>
         {% endfor %}
     </ul>
-    <h2>Категории:</h2>
+    <h2>{% trans "Категории" %}:</h2>
     {% categories as tags %}
     <ul>
         {% for tag in tags  %}

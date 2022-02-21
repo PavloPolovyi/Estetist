@@ -4,9 +4,10 @@ from django.contrib import messages
 from django.urls import reverse_lazy
 from mysite import settings
 import requests
+from django.utils.translation import gettext_lazy as _
 
-success_message = 'Спасибо, с вами скоро свяжется наш консультант.'
-error_message = 'Заполните форму корректными данными.'
+success_message = _('Спасибо, с вами скоро свяжется наш консультант.')
+error_message = _('Заполните форму корректными данными.')
 
 
 def client_form_view(request, service=None):
