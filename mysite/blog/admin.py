@@ -3,11 +3,14 @@ from .models import Post, Comment
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django import forms
 from django.utils.translation import gettext_lazy as _
+from modeltranslation.admin import TranslationAdmin
 
 
 class PostAdminForm(forms.ModelForm):
-    body = forms.CharField(label=_('Текст поста'),
-                           widget=CKEditorUploadingWidget())
+    body_ru = forms.CharField(label=_('Текст поста_ru'),
+                              widget=CKEditorUploadingWidget())
+    body_uk = forms.CharField(label=_('Текст поста_uk'),
+                              widget=CKEditorUploadingWidget())
 
     class Meta:
         model = Post
@@ -20,7 +23,7 @@ class PostInline(admin.TabularInline):
 
 
 @admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(TranslationAdmin):
     list_display = ('title', 'slug', 'publish', 'status')
     list_filter = ('status', 'created', 'publish')
     search_fields = ('title', 'body')
