@@ -92,10 +92,7 @@ main {
     overflow: hidden;
 }
 
-#navbar img {
-    height:15px;
-    width: 30px;
-}
+
 
 /* first section */
 
@@ -571,6 +568,7 @@ option {
     height: 100%;
     padding: 20px;
     text-align: left;
+    position: relative;
 }
 
 
@@ -610,9 +608,10 @@ option {
 }
 
 .date {
-    align-self: start;;
-    bottom: 15px;
     color:#474747;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 .blog-title {
@@ -816,12 +815,15 @@ option {
     #navbar {
         height: 120px;
     } 
-
+    #navbar a {
+        padding: 5px;
+    }
     #navbar li {
         font-size: 15px;
     }
     #navbar .container.flex{
         flex-direction: column;
+        align-items:stretch;
     }
 
     .container {
@@ -885,6 +887,9 @@ option {
     }
     .form-legend {
         text-align: center;
+    }
+    .form-wrapper {
+        max-width: 400px;
     }
     .row-button {
         display: initial;

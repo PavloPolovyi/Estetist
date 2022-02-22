@@ -1,8 +1,19 @@
 from django.db import models
 from django.utils import timezone
 from django.urls import reverse
-from taggit.managers import TaggableManager
 from django.utils.translation import gettext_lazy as _
+
+
+class Category(models.Model):
+    name = models.CharField(_('Название категории'), max_length=120)
+    slug = models.SlugField(_("URL категории"))
+
+    class Meta:
+        verbose_name = _('Категория')
+        verbose_name_plural = _('Категории')
+
+    def __str__(self):
+        return self.name
 
 
 class Post(models.Model):
@@ -24,7 +35,7 @@ class Post(models.Model):
                               max_length=12,
                               choices=STATUS_CHOICES,
                               default=_('черновик'))
-    tags = TaggableManager()
+    category = models.ManyToManyField(Category, related_name='posts')
 
     class Meta:
         ordering = ('-publish', )

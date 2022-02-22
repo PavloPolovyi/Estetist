@@ -1,9 +1,15 @@
 from django.contrib import admin
-from .models import Post, Comment
+from .models import Post, Comment, Category
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django import forms
 from django.utils.translation import gettext_lazy as _
 from modeltranslation.admin import TranslationAdmin
+
+
+@admin.register(Category)
+class CategoryAdmin(TranslationAdmin):
+    list_display = ('name', 'slug')
+    prepopulated_fields = {'slug': ('name', )}
 
 
 class PostAdminForm(forms.ModelForm):
@@ -25,6 +31,7 @@ class PostInline(admin.TabularInline):
 @admin.register(Post)
 class PostAdmin(TranslationAdmin):
     list_display = ('title', 'slug', 'publish', 'status')
+    filter_horizontal = ('category',)
     list_filter = ('status', 'created', 'publish')
     search_fields = ('title', 'body')
     prepopulated_fields = {'slug': ('title', )}

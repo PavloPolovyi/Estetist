@@ -21,10 +21,10 @@
         {% endfor %}
     </ul>
     <h2>{% trans "Категории" %}:</h2>
-    {% categories as tags %}
+    {% categories as categories%}
     <ul>
-        {% for tag in tags  %}
-        <li><a href="{% url 'blog:post_list_by_tag' tag.id %}">{{ tag.name|capfirst }}</a></li>
+        {% for category in categories %}
+        <li><a href="{% url 'blog:post_list_by_tag' category.slug %}">{{ category.name|capfirst }}</a></li>
         <hr>
         {% endfor %}
     </ul>

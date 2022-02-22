@@ -6,39 +6,46 @@
     <div class="blog-title flex">
         <h1>Estetist`s blog</h1>
         {% trans "Делимся опытом, делимся идеями, делимся новостями" %}
-        {% if tag %}
-        <p>{% trans "Публикации отсортированные за категорией" %}: {{ tag.name }}</p>
+        {% if category %}
+        <p>{% trans "Публикации отсортированные за категорией" %}: {{ category.name }}</p>
+        {% endif %}
+        {% if query %}
+        <p>{% trans "Публикации которые содержат поисковый запрос" %}: "{{ query }}".</p>
         {% endif %}
     </div>
     <div class="blog-list grid">
         {% for post in posts %}
-        <div class="post">
-            <a href="{{ post.get_absolute_url }}">
-                <div class="post-image">
-                    <img src="{{ post.image.url }}" alt="{{ post.title }}">
-                </div>
-                <h2>{{ post.title }}</h2>
-                <p>{{ post.body|safe|truncatewords:30|linebreaks }}</p>
-                <span class="date">{{ post.publish|timesince}} ago</span>
-            </a>
-        </div>
+            <div class="post">
+                <a href="{{ post.get_absolute_url }}">
+                    <div class="post-image">
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                    </div>
+                    <h2>{{ post.title }}</h2>
+                    <p>{{ post.body|safe|truncatewords:30 }}</p>
+                    <span class="date">{{ post.publish}}</span>
+                </a>
+            </div>
+        {% empty %}
+            {% if query %}
+                <p>{% trans "За вашим поисковым запросом не найдено ничего" %}.</p>
+            {% endif %}
         {% endfor %}
         {% include 'sidebar.html' %}
     </div>
     <div class="flex">
         <div class="pagination">
             <span class="step-links">
-                {% if posts.has_previous %}
+                {% if page_obj.has_previous %}
                     <a href="?page=1"><i class="fas fa-angle-double-left"></i>
                     </a>
-                    <a href="?page={{ posts.previous_page_number }}"><i class="fas fa-angle-left"></i></a>
+                    <a href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-angle-left"></i></a>
                 {% endif %}
                 <span class="current">
-                    {% trans "Страница" %} {{ posts.number }} {% trans "из" %} {{ posts.paginator.num_pages }}.
+                    {% trans "Страница" %} {{ page_obj.number }} {% trans "из" %} {{ page_obj.paginator.num_pages }}.
                 </span>
-                {% if posts.has_next %}
-                    <a href="?page={{ posts.next_page_number }}"><i class="fas fa-angle-right"></i></a>
-                    <a href="?page={{ posts.paginator.num_pages }}"><i class="fas fa-angle-double-right"></i>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}"><i class="fas fa-angle-right"></i></a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}"><i class="fas fa-angle-double-right"></i>
                     </a>
                 {% endif %}
             </span>
