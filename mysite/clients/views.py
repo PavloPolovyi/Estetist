@@ -1,4 +1,3 @@
-from django.shortcuts import render, redirect
 from .forms import ClientForm
 from django.contrib import messages
 from django.urls import reverse_lazy
