@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  database:
+    image: postgres
+    container_name: postgres
+    env_file:
+      - .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+
+  redis:
+    container_name: redis
+    image: redis:alpine
+    restart: always
+
+  django:
+    build: .
+    container_name: django
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/usr/src/estetist
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database
+      - redis
+    environment:
+      - CELERY_BROKER=redis://redis:6379/0
+      - CELERY_BACKEND=redis://redis:6379/0
+    env_file:
+      - .env
+
+  celery_worker:
+    container_name: celery_worker
+    build: .
+    restart: always
+    volumes:
+      - .:/usr/src/estetist
+    command: celery -A mysite worker -l info
+    depends_on:
+      - database
+      - redis
+      - django
+
+volumes:
+  pgdata:

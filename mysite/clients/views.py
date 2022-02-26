@@ -5,6 +5,7 @@ from mysite import settings
 import requests
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import FormView
+from .tasks import admin_notification
 
 
 class ClientFromView(FormView):
@@ -37,11 +38,13 @@ class ClientFromView(FormView):
                           data=data)
         result = r.json()
         if result['success']:
-            form.save()
+            new_client = form.save()
+            admin_notification.delay(new_client.id)
             messages.success(self.request, self.success_message)
             return super().form_valid(form)
         else:
             messages.error(self.request, self.error_message_captcha)
+            return self.render_to_response(self.get_context_data(form=form))
 
     def form_invalid(self, form):
         messages.error(self.request, self.error_message)
