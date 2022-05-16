@@ -26,7 +26,8 @@
       <img src="{{ post.image.url }}" alt="{{ post.title }}" />
       <p>{{ post.body|safe }}</p>
     </div>
-    {% if request.session.has_commented is not True %}
+    {% with post.slug as key%}
+    {% if key not in request.session %}
     <div class="form-wrapper">
       <h3>{% trans "Оставьте комментарий:" %}</h3>
       <form method="post" action="{% url "blog:submit_comment_form" post.id %}" class="estetist-form">
@@ -36,6 +37,7 @@
       </form>
     </div>
     {% endif %}
+    {% endwith %}
     <div class="comments flex">
       <h3>{% trans "Комментарии" %}:</h3>
       {% with post.comments.all as comments %} 

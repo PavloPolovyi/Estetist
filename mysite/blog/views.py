@@ -63,7 +63,7 @@ class CommentFormView(CreateView):
     def form_valid(self, form):
         self.post = Post.objects.get(id=self.kwargs.get('post_id'))
         form.instance.post = self.post
-        self.request.session['has_commented'] = True
+        self.request.session[f'{self.post.slug}'] = True
         return super().form_valid(form)
 
     def get_success_url(self):
