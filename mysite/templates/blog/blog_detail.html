@@ -1,56 +1,63 @@
-{% extends 'base.html' %}
-{% load i18n %}
-{% load social_share %}
-{% block title %}
-    {{ post.title }}
-{% endblock title %}
+{% extends 'base.html' %} 
+{% load i18n %} 
+{% load social_share %} 
+{% block title%} 
+{{ post.title }} 
+{% endblock title %} 
 {% block content %}
-    <div>
-        <div class="blog-post-title flex">
-            <h1>{{ post.title }}</h1>
-            <span class="pub-date">{% trans "Опубликовано" %}: {{ post.publish}}</span>
-            <ul>
-                <li>{% post_to_whatsapp object_or_url '<i class="fab fa-whatsapp"></i>' %}</li>
-                <li>{% post_to_telegram '{{ post.title}}: ' object_or_url '<i class="fab fa-telegram"></i>' %}</li>
-                <li>{% post_to_facebook object_or_url '<i class="fab fa-facebook"></i>' %}</li>
-            </ul>
-        </div>
-        <div class="blog-post grid">
-            <div class="post-detail">
-                <img src="{{ post.image.url }}" alt="{{ post.title }}">
-                <p>
-                    {{ post.body|safe }}
-                </p>
-            </div>
-            <div class="form-wrapper">
-                <h3>{% trans "Оставьте комментарий:" %}</h3>
-                <form method='post' class="estetist-form">
-                    {% csrf_token %}
-                    {% csrf_token %}
-                    {{ form.as_ul }}
-                    <input type="submit" value="{% trans "Оставить комментарий" %}" class="row-button">
-                </form>
-            </div>
-            <div class="comments flex">
-                <h3>{% trans "Комментарии" %}:</h3>
-                {% for comment in comments %}
-                    <div class="comment">
-                        <span>{{ comment.name }} | {{ comment.created }}</span>
-                        <p>{{ comment.body }}</p>
-                    </div>
-                {% empty %}
-                    <p>{% trans "К этой публикации еще нет комментариев" %}.</p>    
-                {% endfor %}
-            </div>
-            <div class="similar flex">
-                <h3>{% trans "Похожие публикации" %}:</h3>
-                {% for similar_post in similar_posts %}
-                    <a href="{{ similar_post.get_absolute_url }}" class='similar-link'>{{ similar_post.title }}</a>
-                {% empty %}
-                    <p>{% trans "Извините, но пока нет похожих публикаций" %}.</p>   
-                {% endfor %}
-            </div>
-            {% include 'sidebar.html' %}
-        </div>
+<div>
+  <div class="blog-post-title flex">
+    <h1>{{ post.title }}</h1>
+    <span class="pub-date">{% trans "Опубликовано" %}: {{ post.publish}}</span>
+    <ul>
+      <li>
+        {% post_to_whatsapp object_or_url '<i class="fab fa-whatsapp"></i>' %}
+      </li>
+      <li>
+        {% post_to_telegram '{{ post.title}}: ' object_or_url '<i class="fab fa-telegram"></i>' %}
+      </li>
+      <li>
+        {% post_to_facebook object_or_url '<i class="fab fa-facebook"></i>' %}
+      </li>
+    </ul>
+  </div>
+  <div class="blog-post grid">
+    <div class="post-detail">
+      <img src="{{ post.image.url }}" alt="{{ post.title }}" />
+      <p>{{ post.body|safe }}</p>
     </div>
+    {% if request.session.has_commented is not True %}
+    <div class="form-wrapper">
+      <h3>{% trans "Оставьте комментарий:" %}</h3>
+      <form method="post" action="{% url "blog:submit_comment_form" post.id %}" class="estetist-form">
+        {% csrf_token %} 
+        {{ form.as_ul }} 
+        <input type="submit" value="{% trans "Оставить комментарий" %}" class="row-button">
+      </form>
+    </div>
+    {% endif %}
+    <div class="comments flex">
+      <h3>{% trans "Комментарии" %}:</h3>
+      {% with post.comments.all as comments %} 
+      {% for comment in comments %}
+      <div class="comment">
+        <span>{{ comment.name }} | {{ comment.created }}</span>
+        <p>{{ comment.body }}</p>
+      </div>
+      {% empty %}
+      <p>{% trans "К этой публикации еще нет комментариев" %}.</p>
+      {% endfor %} {% endwith %}
+    </div>
+    <div class="similar flex">
+      <h3>{% trans "Похожие публикации" %}:</h3>
+      {% for similar_post in similar_posts %}
+      <a href="{{ similar_post.get_absolute_url }}" class="similar-link">{{ similar_post.title }}</a
+      >
+      {% empty %}
+      <p>{% trans "Извините, но пока нет похожих публикаций" %}.</p>
+      {% endfor %}
+    </div>
+    {% include 'sidebar.html' %}
+  </div>
+</div>
 {% endblock content %}

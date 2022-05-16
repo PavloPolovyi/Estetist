@@ -1,9 +1,9 @@
 version: '3'
 
 services:
-  database:
+  db:
     image: postgres
-    container_name: postgres
+    container_name: postgresql
     env_file:
       - .env
     volumes:
@@ -14,6 +14,13 @@ services:
     image: redis:alpine
     restart: always
 
+  cache:
+    container_name: cache
+    image: memcached
+    restart: always
+    environment:
+      - MEMCACHED_CACHE_SIZE=64
+
   django:
     build: .
     container_name: django
@@ -23,7 +30,8 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - database
+      - db
+      - cache
       - redis
     environment:
       - CELERY_BROKER=redis://redis:6379/0
@@ -39,7 +47,8 @@ services:
       - .:/usr/src/estetist
     command: celery -A mysite worker -l info
     depends_on:
-      - database
+      - db
+      - cache
       - redis
       - django
 

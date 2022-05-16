@@ -19,12 +19,15 @@ from django.views.generic.base import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
+from django.views.decorators.cache import cache_page
 
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('rosetta/', include('rosetta.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('', TemplateView.as_view(template_name='main.html'), name='main'),
+    path('',
+         cache_page(60 * 60)(TemplateView.as_view(template_name='main.html')),
+         name='main'),
     path('blog/', include('blog.urls', namespace='blog')),
     path('form/', include('clients.urls', namespace='clients')),
 )

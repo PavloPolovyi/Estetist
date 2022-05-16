@@ -1,11 +1,12 @@
-from .forms import ClientForm
+import requests
 from django.contrib import messages
 from django.urls import reverse_lazy
-from mysite import settings
-import requests
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import FormView
+
+from mysite import settings
 from .tasks import admin_notification
+from .forms import ClientForm
 
 
 class ClientFromView(FormView):
@@ -20,13 +21,10 @@ class ClientFromView(FormView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['recaptcha_site_key'] = settings.GOOGLE_RECAPTCHA_SITE_KEY
-        try:
-            form = self.form_class()
-            form.set_initial(self.kwargs['service'])
-            context['form'] = form
-            return context
-        except KeyError:
-            return context
+        form = self.form_class()
+        form.set_initial(self.kwargs.get('service', None))
+        context['form'] = form
+        return context
 
     def form_valid(self, form):
         recaptcha_response = self.request.POST.get('g-recaptcha-response')

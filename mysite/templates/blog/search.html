@@ -1,7 +1,6 @@
 {% load i18n %}
 <h2>{% trans "Поиск по блогу" %}</h2>
-<form action="{% url 'blog:search' %}" method="get">
-    {{ search_form.as_ul }}
-    <input type="submit" value="Поиск" class="row-button">
+<form action="{% url 'blog:post_list' %}" method="get">
+  {{ search_form.as_ul }}
+  <input type="submit" value="Поиск" class="row-button" />
 </form>
-
