@@ -3,7 +3,7 @@ This is my first project using Python/Django, HTML/CSS, JS and Docker - Website 
 blog with comments, search using postgres tools, translation (ru/uk) and other features like cache and celery for asynchronous sending of emails.
 
 To run code you need docker to be preinstalled.
-1. Create .env file inside /mysite/ directory and add following lines:
+1. Create .env file inside 'mysite/mysite' directory and add following lines:
   SECRET_KEY = your key with 50 characters length;<br>
   DEBUG = True;<br>
   USER = fill with you data;<br>
