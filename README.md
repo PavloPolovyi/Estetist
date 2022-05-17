@@ -1,8 +1,8 @@
 # Estetist
-This is my first project using Python/Django, HTML/CSS, JS and Docker - Website for a cosmetologist who selects cosmetics for customers. I created it to get a diploma from Beetroot Academy in a field of Python Development. It is pet-project, so it is not ready for production. It consist of main like-landing page, form for clients, 
+This is my first project using Python/Django, HTML/CSS, JS and Docker - Website for a cosmetologist who selects cosmetics for customers. I created it to get a diploma from Beetroot Academy in a field of Python Development. It is pet-project, so it is not ready for production. It consists of main like-landing page, form for clients, 
 blog with comments, search using postgres tools, translation (ru/uk) and other features like cache and celery for asynchronous sending of emails.
 
-To run code you need docker to be preinstalled.
+To run the code you need docker to be preinstalled.
 1. Create .env file inside 'mysite/mysite' directory and add following lines:
   SECRET_KEY = your key with 50 characters length;<br>
   DEBUG = True;<br>
