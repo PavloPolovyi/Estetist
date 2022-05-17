@@ -76,4 +76,4 @@ class Comment(models.Model):
         verbose_name_plural = _('Комментарии')
 
     def __str__(self):
-        return f'Comment by {self.name} on {self.post}'
+        return f'Комментарий сделанный {self.name} к публикации {self.post}'
