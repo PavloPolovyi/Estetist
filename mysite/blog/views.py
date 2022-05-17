@@ -1,4 +1,4 @@
-from .models import Post, Comment
+from .models import Category, Post, Comment
 from .forms import CommentForm
 from django.db.models import Q, Prefetch
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
@@ -18,7 +18,9 @@ class PostListView(ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
         self.query = self.request.GET.get('query', None)
-        self.category = self.kwargs.get('category_slug', None)
+        category_slug = self.kwargs.get('category_slug', None)
+        if category_slug:
+            self.category = Category.objects.get(slug=category_slug)
         if self.query:
             language = self.request.LANGUAGE_CODE
             search_vector = SearchVector(f'title_{language}',
@@ -29,7 +31,7 @@ class PostListView(ListView):
                 rank=SearchRank(search_vector, search_query)).filter(
                     rank__gte=0.1).order_by('-rank')
         if self.category:
-            queryset = queryset.filter(category__slug__in=[self.category])
+            queryset = queryset.filter(category__slug__in=[self.category.slug])
         return queryset
 
     def get_context_data(self, **kwargs):

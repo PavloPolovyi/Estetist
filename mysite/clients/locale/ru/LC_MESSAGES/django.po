@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-21 14:47+0200\n"
+"POT-Creation-Date: 2022-05-17 08:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,62 +20,66 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\clients\forms.py:19
+#: clients/forms.py:19
 msgid "Ваше имя"
 msgstr ""
 
-#: .\clients\forms.py:19
+#: clients/forms.py:19
 msgid "Ваше сообщение"
 msgstr ""
 
-#: .\clients\forms.py:23 .\clients\models.py:9
+#: clients/forms.py:23 clients/models.py:9
 msgid "Пакет Базовый подбор"
 msgstr ""
 
-#: .\clients\forms.py:25 .\clients\models.py:10
+#: clients/forms.py:25 clients/models.py:10
 msgid "Пакет Подбор Плюс"
 msgstr ""
 
-#: .\clients\forms.py:27 .\clients\models.py:11
+#: clients/forms.py:27 clients/models.py:11
 msgid "Пакет Все включено"
 msgstr ""
 
-#: .\clients\models.py:15
+#: clients/models.py:15
 msgid "Имя"
 msgstr ""
 
-#: .\clients\models.py:16
+#: clients/models.py:16
 msgid "Номер телефона"
 msgstr ""
 
-#: .\clients\models.py:20
+#: clients/models.py:20
 msgid "Услуга"
 msgstr ""
 
-#: .\clients\models.py:23
+#: clients/models.py:23
 msgid "Сообщение"
 msgstr ""
 
-#: .\clients\models.py:24
+#: clients/models.py:24
 msgid "Дата заполнения формы"
 msgstr ""
 
-#: .\clients\models.py:26
+#: clients/models.py:26
 msgid "Активный"
 msgstr ""
 
-#: .\clients\models.py:30
+#: clients/models.py:30
 msgid "Клиент"
 msgstr ""
 
-#: .\clients\models.py:31
+#: clients/models.py:31
 msgid "Клиенты"
 msgstr ""
 
-#: .\clients\views.py:9
+#: clients/views.py:16
 msgid "Спасибо, с вами скоро свяжется наш консультант."
 msgstr ""
 
-#: .\clients\views.py:10
+#: clients/views.py:17
 msgid "Заполните форму корректными данными."
+msgstr ""
+
+#: clients/views.py:19
+msgid "Извините, что то пошло не так. Попробуйте еще раз."
 msgstr ""

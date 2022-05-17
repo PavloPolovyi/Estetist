@@ -23,7 +23,6 @@ from django.views.decorators.cache import cache_page
 
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
-    path('rosetta/', include('rosetta.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('',
          cache_page(60 * 60)(TemplateView.as_view(template_name='main.html')),

@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-21 14:47+0200\n"
+"POT-Creation-Date: 2022-05-17 08:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,78 +20,102 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\blog\admin.py:9 .\blog\models.py:18
-msgid "Текст поста"
+#: blog/admin.py:16
+msgid "Текст поста_ru"
 msgstr ""
 
-#: .\blog\forms.py:21
+#: blog/admin.py:18
+msgid "Текст поста_uk"
+msgstr ""
+
+#: blog/forms.py:21
 msgid "Ваш комментарий"
 msgstr ""
 
-#: .\blog\models.py:11 .\blog\models.py:26
+#: blog/models.py:8
+msgid "Название категории"
+msgstr ""
+
+#: blog/models.py:9
+msgid "URL категории"
+msgstr ""
+
+#: blog/models.py:12
+msgid "Категория"
+msgstr ""
+
+#: blog/models.py:13
+msgid "Категории"
+msgstr ""
+
+#: blog/models.py:25 blog/models.py:40
 msgid "черновик"
 msgstr ""
 
-#: .\blog\models.py:11
+#: blog/models.py:25
 msgid "Чeрновик"
 msgstr ""
 
-#: .\blog\models.py:12
+#: blog/models.py:26
 msgid "опубликовано"
 msgstr ""
 
-#: .\blog\models.py:12
+#: blog/models.py:26
 msgid "Опубликовано"
 msgstr ""
 
-#: .\blog\models.py:15
+#: blog/models.py:29
 msgid "Заголовок"
 msgstr ""
 
-#: .\blog\models.py:16
+#: blog/models.py:30
 msgid "Изображение"
 msgstr ""
 
-#: .\blog\models.py:19
+#: blog/models.py:32
+msgid "Текст поста"
+msgstr ""
+
+#: blog/models.py:33
 msgid "Дата публикации"
 msgstr ""
 
-#: .\blog\models.py:20 .\blog\models.py:54
+#: blog/models.py:34 blog/models.py:68
 msgid "Дата создания"
 msgstr ""
 
-#: .\blog\models.py:21 .\blog\models.py:55
+#: blog/models.py:35 blog/models.py:69
 msgid "Дата последнего редактирования"
 msgstr ""
 
-#: .\blog\models.py:23
+#: blog/models.py:37
 msgid "Статус поста"
 msgstr ""
 
-#: .\blog\models.py:31 .\blog\models.py:48
+#: blog/models.py:45 blog/models.py:62
 msgid "Пост"
 msgstr ""
 
-#: .\blog\models.py:32
+#: blog/models.py:46
 msgid "Посты"
 msgstr ""
 
-#: .\blog\models.py:51
+#: blog/models.py:65
 msgid "Имя"
 msgstr ""
 
-#: .\blog\models.py:53
+#: blog/models.py:67
 msgid "Текст комментария"
 msgstr ""
 
-#: .\blog\models.py:57
+#: blog/models.py:71
 msgid "Активный"
 msgstr ""
 
-#: .\blog\models.py:61
+#: blog/models.py:75
 msgid "Комментарий"
 msgstr ""
 
-#: .\blog\models.py:62
+#: blog/models.py:76
 msgid "Комментарии"
 msgstr ""

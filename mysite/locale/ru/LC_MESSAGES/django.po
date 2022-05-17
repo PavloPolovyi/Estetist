@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-21 14:47+0200\n"
+"POT-Creation-Date: 2022-05-17 08:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,116 +20,120 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: .\mysite\settings.py:130
+#: mysite/settings.py:139
 msgid "Russian"
 msgstr "Русский"
 
-#: .\mysite\settings.py:131
+#: mysite/settings.py:140
 msgid "Ukrainian"
 msgstr "Украинский"
 
-#: .\templates\blog\blog_detail.html:11
+#: templates/blog/blog_detail.html:11
 msgid "Опубликовано"
 msgstr ""
 
-#: .\templates\blog\blog_detail.html:26
+#: templates/blog/blog_detail.html:32
 msgid "Оставьте комментарий:"
 msgstr ""
 
-#: .\templates\blog\blog_detail.html:31 .\templates\clients\form.html:24
-#: .\templates\main.html:10 .\templates\main.html:103
-msgid "Заказать подбор"
+#: templates/blog/blog_detail.html:36
+msgid "Оставить комментарий"
 msgstr ""
 
-#: .\templates\blog\blog_detail.html:35
+#: templates/blog/blog_detail.html:42
 msgid "Комментарии"
 msgstr ""
 
-#: .\templates\blog\blog_detail.html:42
+#: templates/blog/blog_detail.html:50
 msgid "К этой публикации еще нет комментариев"
 msgstr ""
 
-#: .\templates\blog\blog_detail.html:46
+#: templates/blog/blog_detail.html:54
 msgid "Похожие публикации"
 msgstr ""
 
-#: .\templates\blog\blog_detail.html:50
+#: templates/blog/blog_detail.html:59
 msgid "Извините, но пока нет похожих публикаций"
 msgstr ""
 
-#: .\templates\blog\blog_list.html:8 .\templates\blog\search_results.html:8
+#: templates/blog/blog_list.html:8
 msgid "Делимся опытом, делимся идеями, делимся новостями"
 msgstr ""
 
-#: .\templates\blog\blog_list.html:10
+#: templates/blog/blog_list.html:10
 msgid "Публикации отсортированные за категорией"
 msgstr ""
 
-#: .\templates\blog\blog_list.html:37 .\templates\blog\search_results.html:38
-msgid "Страница"
-msgstr ""
-
-#: .\templates\blog\blog_list.html:37 .\templates\blog\search_results.html:38
-msgid "из"
-msgstr ""
-
-#: .\templates\blog\search.html:2
-msgid "Поиск по блогу"
-msgstr ""
-
-#: .\templates\blog\search_results.html:9
+#: templates/blog/blog_list.html:13
 msgid "Публикации которые содержат поисковый запрос"
 msgstr ""
 
-#: .\templates\blog\search_results.html:24
+#: templates/blog/blog_list.html:30
 msgid "За вашим поисковым запросом не найдено ничего"
 msgstr ""
 
-#: .\templates\clients\form.html:3
+#: templates/blog/blog_list.html:44
+msgid "Страница"
+msgstr ""
+
+#: templates/blog/blog_list.html:44
+msgid "из"
+msgstr ""
+
+#: templates/blog/search.html:2
+msgid "Поиск по блогу"
+msgstr ""
+
+#: templates/clients/form.html:3
 msgid "Заполните форму"
 msgstr ""
 
-#: .\templates\clients\form.html:15
+#: templates/clients/form.html:15
 msgid "Для получения обратной связи"
 msgstr ""
 
-#: .\templates\clients\form.html:16
+#: templates/clients/form.html:16
 msgid "Оставьте контактную информацию и мы с Вами свяжемся в ближайшее время"
 msgstr ""
 
-#: .\templates\clients\form.html:29
+#: templates/clients/form.html:24 templates/main.html:10
+#: templates/main.html:103
+msgid "Заказать подбор"
+msgstr ""
+
+#: templates/clients/form.html:29
 msgid "Или напишите нам на E-mail"
 msgstr ""
 
-#: .\templates\footer.html:4
+#: templates/footer.html:4
 msgid "Свяжитесь с нами"
 msgstr ""
 
-#: .\templates\header.html:8
+#: templates/header.html:8
 msgid "О нас"
 msgstr ""
 
-#: .\templates\header.html:9
+#: templates/header.html:9
 msgid "Наш блог"
 msgstr ""
 
-#: .\templates\header.html:10
+#: templates/header.html:10
 msgid "Услуги"
 msgstr ""
 
-#: .\templates\main.html:8
+#: templates/main.html:8
 msgid "Индивидуальный подбор ухода за кожей лица"
 msgstr ""
 
-#: .\templates\main.html:9
+#: templates/main.html:9
 msgid "Выбирай косметику грамотно вместе с нашим специалистом"
 msgstr ""
 
-#: .\templates\main.html:17
+#: templates/main.html:17
 msgid "Здоровье - первый шаг к уверенности"
 msgstr ""
 
-#: .\templates\main.html:22
+#: templates/main.html:22
 msgid ""
 "Сегодня на рынке косметической продукции как никогда много разнообразных "
 "средств практически на все случаи жизни. Но, как часто бывает: чем больше "
@@ -138,43 +142,43 @@ msgid ""
 "соответствии с индивидуальными потребностями клиента."
 msgstr ""
 
-#: .\templates\main.html:29
+#: templates/main.html:29
 msgid "Пакет Базовый подбор"
 msgstr ""
 
-#: .\templates\main.html:35 .\templates\main.html:46
+#: templates/main.html:35 templates/main.html:46
 msgid "Включает в себя"
 msgstr ""
 
-#: .\templates\main.html:35
+#: templates/main.html:35
 msgid "Шаг 1 + Шаг 3"
 msgstr ""
 
-#: .\templates\main.html:40
+#: templates/main.html:40
 msgid "Пакет Подбор Плюс"
 msgstr ""
 
-#: .\templates\main.html:46
+#: templates/main.html:46
 msgid "Шаг 1 + Шаг 2 + Шаг 3"
 msgstr ""
 
-#: .\templates\main.html:51
+#: templates/main.html:51
 msgid "Пакет Все включено"
 msgstr ""
 
-#: .\templates\main.html:57
+#: templates/main.html:57
 msgid "Включает в себя полный перечень услуг"
 msgstr ""
 
-#: .\templates\main.html:57
+#: templates/main.html:57
 msgid "Шаг 1 + Шаг 2 + Шаг 3 + Шаг 4"
 msgstr ""
 
-#: .\templates\main.html:64
+#: templates/main.html:64
 msgid "Шаг 1: Консультация"
 msgstr ""
 
-#: .\templates\main.html:65
+#: templates/main.html:65
 msgid ""
 "Первое с чего стоит начать - определение типа кожи, обозначение конкретных "
 "проблем и поиск их первопричин. Вам будет предложено заполнить разработаную "
@@ -189,11 +193,11 @@ msgid ""
 "подходят именно Вам."
 msgstr ""
 
-#: .\templates\main.html:70
+#: templates/main.html:70
 msgid "Шаг 2 (опционально): разбор Вашей 'косметички'"
 msgstr ""
 
-#: .\templates\main.html:72
+#: templates/main.html:72
 msgid ""
 "Для составления полноценной картины лучше также проанализировать те "
 "продукты, которые Вы используете сейчас. Во-первых, это позволит нашему "
@@ -205,11 +209,11 @@ msgid ""
 "значительно выгодней. "
 msgstr ""
 
-#: .\templates\main.html:77
+#: templates/main.html:77
 msgid "Шаг 3: Подбор уходового комплекса"
 msgstr ""
 
-#: .\templates\main.html:78
+#: templates/main.html:78
 msgid ""
 "На основе полученой информации косметолог-эстетист подберет Вам оптимальный "
 "уход исходя из Ваших потребностей и бюджета. Кроме этого, Вам будет "
@@ -217,11 +221,11 @@ msgid ""
 "доплнительные полезные материалы."
 msgstr ""
 
-#: .\templates\main.html:81
+#: templates/main.html:81
 msgid "Шаг 4 (опционально): Готовый Beauty box"
 msgstr ""
 
-#: .\templates\main.html:82
+#: templates/main.html:82
 msgid ""
 "Для экономии Вашего времени предусмотрена услуга составления индивидуального "
 "Beauty box, который включает все рекомендуемые уходовые средства с доставкой "
@@ -231,15 +235,15 @@ msgid ""
 "полезно, удобно и эстетично."
 msgstr ""
 
-#: .\templates\main.html:88
+#: templates/main.html:88
 msgid "Косметолог-эстетист"
 msgstr ""
 
-#: .\templates\main.html:89
+#: templates/main.html:89
 msgid "Екатерина Никишина"
 msgstr ""
 
-#: .\templates\main.html:90
+#: templates/main.html:90
 msgid ""
 "Подбор уходового комплекса проводит опытный и квалифицированный специалист, "
 "выпускник высшего учебного заведения Warszawska uczelnia medychna im. "
@@ -247,50 +251,50 @@ msgid ""
 "эстетистов."
 msgstr ""
 
-#: .\templates\main.html:95
+#: templates/main.html:95
 msgid "То, о чем Вам не расскажут консультанты в магазине"
 msgstr ""
 
-#: .\templates\main.html:107
+#: templates/main.html:107
 msgid "Вы будете знать"
 msgstr ""
 
-#: .\templates\main.html:111
+#: templates/main.html:111
 msgid "Какие обязательные этапы ухода для Вашего типа кожи"
 msgstr ""
 
-#: .\templates\main.html:116
+#: templates/main.html:116
 msgid ""
 "Какие ингредиенты являются наиболее эффективными для решения поставленных "
 "задач"
 msgstr ""
 
-#: .\templates\main.html:121
+#: templates/main.html:121
 msgid "Через какой период времени нужно менять уходовый продукт и почему"
 msgstr ""
 
-#: .\templates\main.html:126
+#: templates/main.html:126
 msgid ""
 "В чем разница между жесткими и мягкими средставами для умывания и какой тип "
 "подойдет именно Вам"
 msgstr ""
 
-#: .\templates\main.html:131
+#: templates/main.html:131
 msgid "Крема Питающие VS Увлажняющие: Какой нужен Вашей коже?"
 msgstr ""
 
-#: .\templates\main.html:135
+#: templates/main.html:135
 msgid "Пиллинги, скрабы и маски: что, когда и как правильно применять"
 msgstr ""
 
-#: .\templates\sidebar.html:7
+#: templates/sidebar.html:7
 msgid "Последние публикации"
 msgstr ""
 
-#: .\templates\sidebar.html:15
+#: templates/sidebar.html:15
 msgid "Популярные"
 msgstr ""
 
-#: .\templates\sidebar.html:23
+#: templates/sidebar.html:23
 msgid "Категории"
 msgstr ""

@@ -18,8 +18,7 @@ services:
     container_name: cache
     image: memcached
     restart: always
-    environment:
-      - MEMCACHED_CACHE_SIZE=64
+    entrypoint: ["memcached", "-m 64", "-vvv"]
 
   django:
     build: .
