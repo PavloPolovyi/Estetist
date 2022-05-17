@@ -1,5 +1,5 @@
 # Estetist
-This is my first project using Python/Django, HTML/CSS, JS and Docker - Website for a cosmetologist who selects cosmetics for customers. I created it to get a diploma from Beetroot Academy in a field of Python Development. It consist of main like-landing page, form for clients, 
+This is my first project using Python/Django, HTML/CSS, JS and Docker - Website for a cosmetologist who selects cosmetics for customers. I created it to get a diploma from Beetroot Academy in a field of Python Development. It`s only a pet-project, so it`s not ready for production. It consist of main like-landing page, form for clients, 
 blog with comments, search using postgres tools, translation (ru/uk) and other features like cache and celery for asynchronous sending of emails.
 
 To run code you need docker to be preinstalled.
