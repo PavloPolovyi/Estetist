@@ -24,11 +24,14 @@ This is my first project using Python/Django, HTML/CSS, JS and Docker - Fully fe
 ## <h2>:bomb:Instructions for launching the project:bomb:</h2>
 <h4>To run this project locally, follow these steps:</h4>
 1️⃣ You should install <a href="https://docs.docker.com/get-docker/">Docker</a>
+
 2️⃣ Clone this project
 ```bash
 git clone https://github.com/PavloPolovyi/Estetist
 ```
+
 3️⃣ Create .env file inside 'mysite/mysite' directory and add following lines:
+
   SECRET_KEY = your key with 50 characters length
   DEBUG = True
   USER = fill with you data
@@ -39,8 +42,10 @@ git clone https://github.com/PavloPolovyi/Estetist
   POSTGRES_USER = fill with your data
   POSTGRES_PASSWORD = fill with your data
   POSTGRES_DB = fill with your data
+  
 2. Run following command:
 ```bash
 docker compose up
 ```
-3. Open in browser <a href="http://http://localhost:8080/">localhost:8080</a>.
+
+3. Open in browser <a href="http://http://localhost:8080/">localhost:8080</a>
