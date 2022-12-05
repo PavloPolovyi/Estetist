@@ -1,6 +1,6 @@
 # :monocle_face: Estetist :monocle_face:
 <h2> Project description </h2>
-This is my first project using Python/Django, HTML/CSS, JS and Docker - Fully featured website for a cosmetologist who selects cosmetics for customers. It is a pet-project, so it is not ready for production. 
+This is my first project using Python/Django, HTML/CSS, JS and Docker - Fully featured website for a cosmetologist who selects cosmetics for customers.
 
 ## <h2>:bookmark_tabs: Features</h2>
 * Main like-landing page
