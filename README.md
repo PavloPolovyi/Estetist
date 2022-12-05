@@ -43,9 +43,9 @@ git clone https://github.com/PavloPolovyi/Estetist
   POSTGRES_PASSWORD = fill with your data
   POSTGRES_DB = fill with your data
   
-2. Run following command:
+4️⃣ Run following command:
 ```bash
 docker compose up
 ```
 
-3. Open in browser <a href="http://http://localhost:8080/">localhost:8080</a>
+5️⃣ Open in browser <a href="http://http://localhost:8080/">localhost:8080</a>
